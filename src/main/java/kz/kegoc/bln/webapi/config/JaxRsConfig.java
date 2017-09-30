@@ -3,7 +3,6 @@ package kz.kegoc.bln.webapi.config;
 import java.util.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import kz.kegoc.bln.webapi.adm.*;
 import kz.kegoc.bln.webapi.exception.mapper.*;
 import kz.kegoc.bln.webapi.filters.BasicAuthentificationFilter;
 import kz.kegoc.bln.webapi.meta.*;
@@ -16,10 +15,6 @@ public class JaxRsConfig extends Application {
 	public Set<Class<?>> getClasses() {
 		final Set<Class<?>> resources = new HashSet<Class<?>>();
 
-		resources.add(FuncResourceImpl.class);
-		resources.add(RoleResourceImpl.class);
-		resources.add(UserResourceImpl.class);
-		
 		resources.add(MetaModuleResourceImpl.class);
 		resources.add(MetaDictResourceImpl.class);
 		resources.add(MetaAdmResourceImpl.class);

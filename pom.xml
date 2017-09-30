@@ -6,7 +6,7 @@
     <artifactId>blnMetaApi</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>blnAdmApi</name>
+    <name>blnMetaApi</name>
 	<description>Web API for Billing Meta information</description>
 
     <properties>

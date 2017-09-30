@@ -77,8 +77,8 @@ public class MetaAdmResourceImpl {
 
 	
 	@POST
-	public Response create(AdmDto accountingTypeDto) {
-		Adm newEntity = service.create(mapper.map(accountingTypeDto, Adm.class));	
+	public Response create(AdmDto admDto) {
+		Adm newEntity = service.create(mapper.map(admDto, Adm.class));	
 		return Response.ok()
 			.entity(mapper.map(newEntity, AdmDto.class))
 			.build();
@@ -87,8 +87,8 @@ public class MetaAdmResourceImpl {
 	
 	@PUT 
 	@Path("{id : \\d+}") 
-	public Response update(@PathParam("id") Long id, AdmDto accountingTypeDto ) {
-		Adm newEntity = service.update(mapper.map(accountingTypeDto, Adm.class)); 
+	public Response update(@PathParam("id") Long id, AdmDto admDto ) {
+		Adm newEntity = service.update(mapper.map(admDto, Adm.class)); 
 		return Response.ok()
 			.entity(mapper.map(newEntity, AdmDto.class))
 			.build();

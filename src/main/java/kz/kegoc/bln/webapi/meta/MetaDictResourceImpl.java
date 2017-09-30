@@ -77,8 +77,8 @@ public class MetaDictResourceImpl {
 
 	
 	@POST
-	public Response create(DictDto accountingTypeDto) {
-		Dict newEntity = service.create(mapper.map(accountingTypeDto, Dict.class));	
+	public Response create(DictDto dictDto) {
+		Dict newEntity = service.create(mapper.map(dictDto, Dict.class));	
 		return Response.ok()
 			.entity(mapper.map(newEntity, DictDto.class))
 			.build();
@@ -87,8 +87,8 @@ public class MetaDictResourceImpl {
 	
 	@PUT 
 	@Path("{id : \\d+}") 
-	public Response update(@PathParam("id") Long id, DictDto accountingTypeDto ) {
-		Dict newEntity = service.update(mapper.map(accountingTypeDto, Dict.class)); 
+	public Response update(@PathParam("id") Long id, DictDto dictDto ) {
+		Dict newEntity = service.update(mapper.map(dictDto, Dict.class)); 
 		return Response.ok()
 			.entity(mapper.map(newEntity, DictDto.class))
 			.build();

@@ -77,8 +77,8 @@ public class MetaModuleResourceImpl {
 
 	
 	@POST
-	public Response create(ModuleDto accountingTypeDto) {
-		Module newEntity = service.create(mapper.map(accountingTypeDto, Module.class));	
+	public Response create(ModuleDto moduleDto) {
+		Module newEntity = service.create(mapper.map(moduleDto, Module.class));	
 		return Response.ok()
 			.entity(mapper.map(newEntity, ModuleDto.class))
 			.build();
@@ -87,8 +87,8 @@ public class MetaModuleResourceImpl {
 	
 	@PUT 
 	@Path("{id : \\d+}") 
-	public Response update(@PathParam("id") Long id, ModuleDto accountingTypeDto ) {
-		Module newEntity = service.update(mapper.map(accountingTypeDto, Module.class)); 
+	public Response update(@PathParam("id") Long id, ModuleDto moduleDto ) {
+		Module newEntity = service.update(mapper.map(moduleDto, Module.class)); 
 		return Response.ok()
 			.entity(mapper.map(newEntity, ModuleDto.class))
 			.build();
