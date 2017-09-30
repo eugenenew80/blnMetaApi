@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+    
+
+    <changeSet id="adm-eug-34" logicalFilePath="path-independent" author="eugene" context="postgres">
+        <comment>Creating table: adm_role_dicts</comment>
+        <createTable tableName="adm_role_dicts" schemaName="apps">            
+            <column name="role_id" type="number">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="dict_id" type="number">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="start_date" type="date">
+                <constraints nullable="true"/>
+            </column>
+                                    			                                                 
+            <column name="end_date" type="date">
+                <constraints nullable="true"/>
+            </column>              
+        </createTable>
+    </changeSet>
+
+	<changeSet id="adm-eug-35" logicalFilePath="path-independent" author="eugene" context="postgres">
+	    <comment>Creating primary key for table: adm_role_dicts</comment>
+	    <addPrimaryKey 
+	            columnNames="role_id, dict_id"
+	            constraintName="pk_adm_role_dicts"
+	            schemaName="apps"
+	            tableName="adm_role_dicts"/>
+	</changeSet>
+	
+	<changeSet id="adm-eug-36" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<comment>Load demo data to table: adm_role_dicts</comment>
+	    <loadData
+	            encoding="UTF-8"
+	            relativeToChangelogFile="true"
+	            file="data/adm_role_dicts.csv"
+	            quotchar="'"
+	            schemaName="apps"
+	            separator=";"
+	            tableName="adm_role_dicts">
+	        
+	        <column name="role_id"		type="NUMERIC"/>
+	        <column name="dict_id"		type="NUMERIC"/>
+	        <column name="start_date"	type="DATE"/>
+	    </loadData>
+		
+		<rollback>
+        	<delete schemaName="apps" tableName="adm_role_dicts" />
+        </rollback>	
+	</changeSet>	
+</databaseChangeLog>
