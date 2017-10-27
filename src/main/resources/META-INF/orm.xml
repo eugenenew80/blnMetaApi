@@ -90,4 +90,36 @@
       		</basic>      		
 		</attributes>
 	</entity>
+	
+	
+	<entity class="kz.kegoc.bln.entity.meta.Media">
+		<table name="meta_media" schema="apps" />
+		<attributes>
+			<id name="id">
+				<column name="id" />
+        		<generated-value strategy="SEQUENCE" generator="meta_media_gen" />
+        		<sequence-generator
+        			name="meta_media_gen"
+        			sequence-name="apps.meta_media_s"
+					allocation-size="1"
+        		/>				
+			</id>
+
+      		<basic name="code">
+      			<column name="code" />
+      		</basic>
+
+      		<basic name="name">
+      			<column name="name" />
+      		</basic>
+      		
+      		<basic name="shortName">
+      			<column name="short_name" />
+      		</basic>      		
+
+      		<basic name="imagePath">
+      			<column name="image_path" />
+      		</basic>      		
+		</attributes>
+	</entity>	
 </entity-mappings>

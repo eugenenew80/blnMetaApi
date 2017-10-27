@@ -51,4 +51,21 @@
 		</query>
 	</named-query>
 			
+
+
+	<named-query name="Media.findAll">
+		<query>
+			select t from Media t order by t.id
+		</query>
+	</named-query>
+	<named-query name="Media.findByName">
+		<query>
+			select t from Media t where t.name=:name
+		</query>
+	</named-query>
+	<named-query name="Media.findByCode">
+		<query>
+			select t from Media t where t.code=:code
+		</query>
+	</named-query>
 </entity-mappings>

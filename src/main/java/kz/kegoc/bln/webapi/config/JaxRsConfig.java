@@ -18,6 +18,7 @@ public class JaxRsConfig extends Application {
 		resources.add(MetaModuleResourceImpl.class);
 		resources.add(MetaDictResourceImpl.class);
 		resources.add(MetaAdmResourceImpl.class);
+		resources.add(MetaMediaResourceImpl.class);
 		
 		resources.add(BasicAuthentificationFilter.class);
 		
