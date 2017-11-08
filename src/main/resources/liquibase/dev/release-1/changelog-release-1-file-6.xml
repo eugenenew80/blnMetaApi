@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+	<changeSet id="meta-eug-21" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<update schemaName="apps" tableName="meta_modules">
+			<column name="code" value="MEDIA"/>
+			<where>code='DATA'</where>
+		</update>
+
+		<rollback>
+			<update schemaName="apps" tableName="meta_modules">
+				<column name="code" value="DATA"/>
+				<where>code='MEDIA'</where>
+			</update>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="meta-eug-22" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<update schemaName="apps" tableName="meta_modules">
+			<column name="code" value="SITE_REGISTRY"/>
+			<column name="name" value="Реестр договоров"/>
+			<column name="short_name" value="Реестр договоров"/>
+			<where>code='EDOC'</where>
+		</update>
+
+		<rollback>
+			<update schemaName="apps" tableName="meta_modules">
+				<column name="code" value="EDOC"/>
+				<column name="name" value="Документооборот"/>
+				<column name="short_name" value="Документооборот"/>
+				<where>code='SITE_REGISTRY'</where>
+			</update>
+
+		</rollback>
+	</changeSet>
+
+	<changeSet id="meta-eug-23" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<update schemaName="apps" tableName="meta_modules">
+			<column name="code" value="VIE"/>
+			<column name="name" value="ВИЭ"/>
+			<column name="short_name" value="ВИЭ"/>
+			<where>code='RFC'</where>
+		</update>
+
+		<rollback>
+			<update schemaName="apps" tableName="meta_modules">
+				<column name="code" value="RFC"/>
+				<column name="name" value="РФЦ"/>
+				<column name="short_name" value="РФЦ"/>
+				<where>code='VIE'</where>
+			</update>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>
