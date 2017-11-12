@@ -7,11 +7,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import org.dozer.DozerBeanMapper;
-import org.apache.commons.lang3.StringUtils;
-
 import kz.kegoc.bln.entity.meta.Dict;
 import kz.kegoc.bln.entity.meta.dto.DictDto;
-import kz.kegoc.bln.repository.common.query.*;
 import kz.kegoc.bln.service.meta.DictService;
 
 
@@ -28,14 +25,8 @@ public class MetaDictResourceImpl {
 
 
 	@GET 
-	public Response getAll(@QueryParam("code") String code, @QueryParam("name") String name) {		
-		Query query = QueryImpl.builder()			
-			.setParameter("code", StringUtils.isNotEmpty(code) ? new MyQueryParam("code", code + "%", ConditionType.LIKE) : null)	
-			.setParameter("name", StringUtils.isNotEmpty(name) ? new MyQueryParam("name", name + "%", ConditionType.LIKE) : null)	
-			.setOrderBy("t.id")
-			.build();		
-		
-		List<DictDto> list = service.find(query)
+	public Response getAll() {
+		List<DictDto> list = service.findAll()
 			.stream()
 			.map( it-> mapper.map(it, DictDto.class) )
 			.collect(Collectors.toList());

@@ -7,11 +7,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import org.dozer.DozerBeanMapper;
-import org.apache.commons.lang3.StringUtils;
-
 import kz.kegoc.bln.entity.meta.Media;
 import kz.kegoc.bln.entity.meta.dto.MediaDto;
-import kz.kegoc.bln.repository.common.query.*;
 import kz.kegoc.bln.service.meta.MediaService;
 
 
@@ -29,13 +26,7 @@ public class MetaMediaResourceImpl {
 
 	@GET 
 	public Response getAll(@QueryParam("code") String code, @QueryParam("name") String name) {		
-		Query query = QueryImpl.builder()			
-			.setParameter("code", StringUtils.isNotEmpty(code) ? new MyQueryParam("code", code + "%", ConditionType.LIKE) : null)	
-			.setParameter("name", StringUtils.isNotEmpty(name) ? new MyQueryParam("name", name + "%", ConditionType.LIKE) : null)	
-			.setOrderBy("t.id")
-			.build();		
-		
-		List<MediaDto> list = service.find(query)
+		List<MediaDto> list = service.findAll()
 			.stream()
 			.map( it-> mapper.map(it, MediaDto.class) )
 			.collect(Collectors.toList());

@@ -20,4 +20,7 @@ public class Dict implements HasId, HasCode, HasName {
 	
 	@NotNull @Size(max = 100)
 	private String imagePath;
+
+	private Long listOrder;
+	private String groupName;
 }

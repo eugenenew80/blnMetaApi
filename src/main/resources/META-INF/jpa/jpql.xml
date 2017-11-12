@@ -20,7 +20,7 @@
 	
 	<named-query name="Dict.findAll">
 		<query>
-			select t from Dict t order by t.id
+			select t from Dict t order by t.listOrder, t.id
 		</query>
 	</named-query>
 	<named-query name="Dict.findByName">

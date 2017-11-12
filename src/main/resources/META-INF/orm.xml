@@ -57,6 +57,14 @@
       		<basic name="imagePath">
       			<column name="image_path" />
       		</basic>      		
+
+			<basic name="listOrder">
+      			<column name="list_order" />
+      		</basic>
+
+			<basic name="groupName">
+      			<column name="group_name" />
+      		</basic>
 		</attributes>
 	</entity>
 
