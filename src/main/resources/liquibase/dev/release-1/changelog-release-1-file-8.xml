@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+		xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+	<changeSet id="meta-eug-28" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<insert schemaName="apps" tableName="meta_dicts">
+			<column name="id" 			type="number" 		value="21"/>
+			<column name="code" 		type="varchar(30)" 	value="dictCountry"/>
+			<column name="short_name" 	type="varchar(100)" value="Страны"/>
+			<column name="name" 		type="varchar(300)" value="Список стран"/>
+			<column name="image_path" 	type="varchar(100)" value="img/list/menu_item.jpg"/>
+		</insert>
+
+		<rollback>
+			<delete schemaName="apps" tableName="meta_dicts">
+				<where>code='dictCountry'</where>
+			</delete>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="meta-eug-29" logicalFilePath="path-independent" author="eugene"  context="postgres">
+		<dropSequence schemaName="apps" sequenceName="meta_dicts_s"/>
+		<rollback>
+			<createSequence
+					incrementBy="1"
+					schemaName="apps"
+					sequenceName="meta_dicts_s"
+					startValue="21"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="meta-eug-30" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<comment>Creating sequence for table: meta_dicts</comment>
+		<createSequence
+				incrementBy="1"
+				schemaName="apps"
+				sequenceName="meta_dicts_s"
+				startValue="22"/>
+	</changeSet>
+
+	<changeSet id="meta-eug-31" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<addColumn schemaName="apps" tableName="meta_dicts">
+			<column name="list_order" type="number"/>
+			<column name="group_name" type="varchar(100)"/>
+		</addColumn>
+	</changeSet>
+
+</databaseChangeLog>
