@@ -14,8 +14,10 @@
 13;dictMeteringPointType;Типы точек учёта;Справочник типов точек учёта;img/list/menu_item.jpg
 14;dictAccountingType;Виды учёта;Справочник видов учёта электроэнергии;img/list/menu_item.jpg
 15;dictUnit;Единицы измерения;Справочник единиц измерения;img/list/menu_item.jpg
-16;dictCompany;Компании;Справочник компаний-владельцев средств измерений;img/list/menu_item.jpg
+16;dictOrganization;Орг. структура;Орг. структура предприятия;img/list/menu_item.jpg
 17;dictRegion;Области;Справочник административных областей;img/list/menu_item.jpg
 18;dictEnergyZone;Зоны;Справочник зон энергосистемы;img/list/menu_item.jpg
 19;dictEnergyNode;Энергоузлы;Справочник энергоузлов энергосистемы;img/list/menu_item.jpg
 20;dictDataSource;Источники данных;Справочник источников данных;img/list/menu_item.jpg
+21;dictCountry;Страны;Справочник стран;img/list/menu_item.jpg
+22;dictBusinessPartner;Бизнес-партнеры;Справочник бизнес-партнеров;img/list/menu_item.jpg
