@@ -69,7 +69,7 @@
 	            incrementBy="1"
 	            schemaName="apps"
 	            sequenceName="meta_media_s"
-	            startValue="2"/>
+	            startValue="6"/>
 	</changeSet>	
 	
 </databaseChangeLog>
