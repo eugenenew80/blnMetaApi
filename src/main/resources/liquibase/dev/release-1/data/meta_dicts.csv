@@ -1,4 +1,4 @@
-﻿id;code;short_name;name;image_path
+﻿﻿id;code;short_name;name;image_path
 1;dictPowerLineType;Типы линий;Справочник типов линий;img/list/menu_item.jpg
 2;dictPowerLine;Линии электропередач;Справочник линий электропередач;img/list/menu_item.jpg
 3;dictPowerTransformer;Силовые трансформаторы;Справочник силовых трансформаторов;img/list/menu_item.jpg
@@ -23,6 +23,5 @@
 23;dictRegion;Области;Справочник административных областей;img/list/menu_item.jpg
 24;dictEnergyZone;Зоны;Справочник зон энергосистемы;img/list/menu_item.jpg
 25;dictEnergyNode;Энергоузлы;Справочник энергоузлов энергосистемы;img/list/menu_item.jpg
-26;dictEnergyDistrict;Энергорайоны;Справочник энергорайонов энергосистемы;img/list/menu_item.jpg
-27;dictBusinessPartner;Бизнес-партнеры;Справочник бизнес-партнеров;img/list/menu_item.jpg
-28;dictBank;Банки;Справочник банков;img/list/menu_item.jpg
+26;dictBusinessPartner;Бизнес-партнеры;Справочник бизнес-партнеров;img/list/menu_item.jpg
+27;dictBank;Банки;Справочник банков;img/list/menu_item.jpg
