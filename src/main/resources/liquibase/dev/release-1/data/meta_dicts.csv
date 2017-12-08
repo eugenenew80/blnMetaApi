@@ -1,4 +1,4 @@
-﻿﻿id;code;short_name;name;image_path
+﻿id;code;short_name;name;image_path
 1;dictPowerLineType;Типы линий;Справочник типов линий;img/list/menu_item.jpg
 2;dictPowerLine;Линии электропередач;Справочник линий электропередач;img/list/menu_item.jpg
 3;dictPowerTransformer;Силовые трансформаторы;Справочник силовых трансформаторов;img/list/menu_item.jpg
