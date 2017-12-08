@@ -94,12 +94,12 @@
                 <password>q1w2e3r4T5</password>
                 <scripts>dev</scripts>
                 <skipTests>true</skipTests>
-            </properties>
 
-            <wildfly-server>10.9.44.240</wildfly-server>
-            <wildfly-port>9990</wildfly-port>
-            <wildfly-user>admin</wildfly-user>
-            <wildfly-password>1</wildfly-password>
+                <wildfly-server>10.9.44.240</wildfly-server>
+                <wildfly-port>9990</wildfly-port>
+                <wildfly-user>admin</wildfly-user>
+                <wildfly-password>1</wildfly-password>
+            </properties>
         </profile>
 
         <profile>
@@ -111,12 +111,13 @@
                 <password>1</password>
                 <scripts>dev</scripts>
                 <skipTests>true</skipTests>
-            </properties>
 
-            <wildfly-server>localhost</wildfly-server>
-            <wildfly-port>9990</wildfly-port>
-            <wildfly-user>admin</wildfly-user>
-            <wildfly-password>1</wildfly-password>
+
+                <wildfly-server>localhost</wildfly-server>
+                <wildfly-port>9990</wildfly-port>
+                <wildfly-user>admin</wildfly-user>
+                <wildfly-password>1</wildfly-password>
+            </properties>
         </profile>
     </profiles>
     
