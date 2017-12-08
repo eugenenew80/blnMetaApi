@@ -1,5 +1,6 @@
 ﻿id;code;short_name;name;image_path
 1;mediaGroup;Группы;Группы точек учёта;img/list/menu_item.jpg
 2;mediaDocType;Типы документов;Список типов документов;img/list/menu_item.jpg
-3;mediaDocTemplate;Шаблоны документов;Настройка шаблонов документов;img/list/menu_item.jpg
-4;mediaDocMeteringReadingHeader;Акты съёма показаний;Акты съёма показаний точек учёта;img/list/menu_item.jpg
+3;mediaDocMeteringReadingHeader;Акты съёма показаний;Акты съёма показаний точек учёта;img/list/menu_item.jpg
+4;mediaDocMeterReplacingHeader;Акты замены прборов учёта;Акты замены прборов учёта;img/list/menu_item.jpg
+5;mediaDocUnderAccountingHeader;Акты недоучёта электроэнергии;Акты недоучёта электроэнергии;img/list/menu_item.jpg

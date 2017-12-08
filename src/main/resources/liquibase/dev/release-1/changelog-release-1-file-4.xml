@@ -13,7 +13,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="code" type="varchar(30)">
+            <column name="code" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
             
@@ -69,7 +69,7 @@
 	            incrementBy="1"
 	            schemaName="apps"
 	            sequenceName="meta_media_s"
-	            startValue="2"/>
+	            startValue="6"/>
 	</changeSet>	
 	
 </databaseChangeLog>

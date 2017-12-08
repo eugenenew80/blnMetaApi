@@ -1,23 +1,28 @@
 ﻿id;code;short_name;name;image_path
-1;dictMeterType;Типы счётчиков;Справочник типов счётчиков;img/list/menu_item.jpg
-2;dictCurrentTransType;Типы трансформаторов тока;Справочник типов трансформаторов тока;img/list/menu_item.jpg
-3;dictVoltageTransType;Типы трансформаторов напряжения;Справочник типов трансформаторов напряжения;img/list/menu_item.jpg
-4;dictMeteringPoint;Точки учёта;Справочник точек учёта;img/list/menu_item.jpg
+1;dictPowerLineType;Типы линий;Справочник типов линий;img/list/menu_item.jpg
+2;dictPowerLine;Линии электропередач;Справочник линий электропередач;img/list/menu_item.jpg
+3;dictPowerTransformer;Силовые трансформаторы;Справочник силовых трансформаторов;img/list/menu_item.jpg
+4;dictReactor;Реакторы;Справочник реакторов;img/list/menu_item.jpg
 5;dictMeter;Счётчики;Справочник счётчиков;img/list/menu_item.jpg
-6;dictCurrentTrans;Трансформаторы тока;Справочник трансформаторов тока;img/list/menu_item.jpg
-7;dictVoltageTrans;Трансформаторы напряжения;Справочник трансформаторов напряжения;img/list/menu_item.jpg
-8;dictSubstationType;Типы подстанций;Справочник типов подстанций;img/list/menu_item.jpg
-9;dictEnergySourceType;Типы энергоисточников;Справочник типов энергоисточников;img/list/menu_item.jpg
-10;dictSubstation;Подстанции;Справочник подстанций;img/list/menu_item.jpg
-11;dictEnergySource;Энергоисточники;Справочник энергоисточников;img/list/menu_item.jpg
-12;dictMeteringType;Типы учёта;Справочник типов учёта электроэнергии;img/list/menu_item.jpg
-13;dictMeteringPointType;Типы точек учёта;Справочник типов точек учёта;img/list/menu_item.jpg
-14;dictAccountingType;Виды учёта;Справочник видов учёта электроэнергии;img/list/menu_item.jpg
-15;dictUnit;Единицы измерения;Справочник единиц измерения;img/list/menu_item.jpg
-16;dictOrganization;Орг. структура;Орг. структура предприятия;img/list/menu_item.jpg
-17;dictRegion;Области;Справочник административных областей;img/list/menu_item.jpg
-18;dictEnergyZone;Зоны;Справочник зон энергосистемы;img/list/menu_item.jpg
-19;dictEnergyNode;Энергоузлы;Справочник энергоузлов энергосистемы;img/list/menu_item.jpg
+6;dictSubstation;Подстанции;Справочник подстанций;img/list/menu_item.jpg
+8;dictEnergySource;Энергоисточники;Справочник энергоисточников;img/list/menu_item.jpg
+9;dictMeteringPoint;Точки учёта;Справочник точек учёта;img/list/menu_item.jpg
+10;dictMeterType;Типы счётчиков;Справочник типов счётчиков;img/list/menu_item.jpg
+11;dictCurrentTransType;Типы трансформаторов тока;Справочник типов трансформаторов тока;img/list/menu_item.jpg
+12;dictVoltageTransType;Типы трансформаторов напряжения;Справочник типов трансформаторов напряжения;img/list/menu_item.jpg
+13;dictSubstationType;Типы подстанций;Справочник типов подстанций;img/list/menu_item.jpg
+14;dictEnergySourceType;Типы энергоисточников;Справочник типов энергоисточников;img/list/menu_item.jpg
+15;dictVoltageClass;Классы напряжений;Справочник классов напряжений;img/list/menu_item.jpg
+16;dictMeteringType;Типы учёта;Справочник типов учёта электроэнергии;img/list/menu_item.jpg
+17;dictMeteringPointType;Типы точек учёта;Справочник типов точек учёта;img/list/menu_item.jpg
+18;dictAccountingType;Виды учёта;Справочник видов учёта электроэнергии;img/list/menu_item.jpg
+19;dictUnit;Единицы измерения;Справочник единиц измерения;img/list/menu_item.jpg
 20;dictDataSource;Источники данных;Справочник источников данных;img/list/menu_item.jpg
-21;dictCountry;Страны;Справочник стран;img/list/menu_item.jpg
-22;dictBusinessPartner;Бизнес-партнеры;Справочник бизнес-партнеров;img/list/menu_item.jpg
+21;dictOrganization;Орг. структура;Орг. структура предприятия;img/list/menu_item.jpg
+22;dictCountry;Страны;Справочник стран;img/list/menu_item.jpg
+23;dictRegion;Области;Справочник административных областей;img/list/menu_item.jpg
+24;dictEnergyZone;Энергозоны;Справочник зон энергосистемы;img/list/menu_item.jpg
+25;dictEnergyNode;Энергоузлы;Справочник энергоузлов энергосистемы;img/list/menu_item.jpg
+26;dictEnergyDistrict;Энергорайоны;Справочник энергорайонов энергосистемы;img/list/menu_item.jpg
+27;dictBusinessPartner;Бизнес-партнеры;Справочник бизнес-партнеров;img/list/menu_item.jpg
+28;dictBank;Банки;Справочник банков;img/list/menu_item.jpg
