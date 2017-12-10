@@ -62,7 +62,7 @@
       			<column name="list_order" />
       		</basic>
 
-			<basic name="groupName">
+			<basic name="groupCode">
       			<column name="group_name" />
       		</basic>
 		</attributes>

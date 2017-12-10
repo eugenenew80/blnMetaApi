@@ -12,5 +12,6 @@ public class DictDto {
 	private String code;
 	private String name;
 	private String shortName;
+	private String groupCode;
 	private String imagePath;
 }
