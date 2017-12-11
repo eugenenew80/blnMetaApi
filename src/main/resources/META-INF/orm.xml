@@ -63,7 +63,7 @@
       		</basic>
 
 			<basic name="groupCode">
-      			<column name="group_name" />
+      			<column name="group_code" />
       		</basic>
 		</attributes>
 	</entity>

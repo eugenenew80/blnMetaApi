@@ -31,7 +31,7 @@
             </column>
 
 			<column name="list_order" type="number"/>
-			<column name="group_name" type="varchar(100)"/>
+			<column name="group_code" type="varchar(100)"/>
         </createTable>
     </changeSet>
 
@@ -60,6 +60,7 @@
 	        <column name="name"				type="STRING"/>
 	        <column name="short_name"		type="STRING"/>
 	        <column name="image_path"		type="STRING"/>
+	        <column name="group_code"		type="STRING"/>
 	    </loadData>
 		
 		<rollback>

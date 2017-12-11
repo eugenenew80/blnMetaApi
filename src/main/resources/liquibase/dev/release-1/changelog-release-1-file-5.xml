@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id="meta-eug-17" logicalFilePath="path-independent" author="eugene" context="postgres">
+        <comment>Creating table: meta_dict_groups</comment>
+        <createTable tableName="meta_dict_groups" schemaName="apps">            
+            <column name="code" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="short_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+	<changeSet id="meta-eug-18" logicalFilePath="path-independent" author="eugene" context="postgres">
+	    <comment>Creating primary key for table: meta_dict_groups</comment>
+	    <addPrimaryKey 
+	            columnNames="code"
+	            constraintName="pk_meta_dict_groups"
+	            schemaName="apps"
+	            tableName="meta_dict_groups"/>
+	</changeSet>
+	
+	<changeSet id="meta-eug-19" logicalFilePath="path-independent" author="eugene" context="postgres">
+		<comment>Load demo data to table: meta_dict_groups</comment>
+	    <loadData
+	            encoding="UTF-8"
+	            relativeToChangelogFile="true"
+	            file="data/meta_dict_groups.csv"
+	            quotchar="'"
+	            schemaName="apps"
+	            separator=";"
+	            tableName="meta_dict_groups">
+	        
+	        <column name="code" 			type="STRING"/>
+	        <column name="name"				type="STRING"/>
+	        <column name="short_name"		type="STRING"/>
+	    </loadData>
+		
+		<rollback>
+        	<delete schemaName="apps" tableName="meta_dict_groups" />
+        </rollback>	
+	</changeSet>	
+</databaseChangeLog>
