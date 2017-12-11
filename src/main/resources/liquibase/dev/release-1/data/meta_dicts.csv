@@ -7,9 +7,9 @@
 6;dictSubstation;Подстанции;Справочник подстанций;img/list/menu_item.jpg;object
 8;dictEnergySource;Энергоисточники;Справочник энергоисточников;img/list/menu_item.jpg;object
 9;dictMeteringPoint;Точки учёта;Справочник точек учёта;img/list/menu_item.jpg;meteringPoint
-10;dictMeterType;Типы счётчиков;Справочник типов счётчиков;img/list/menu_item.jpg;meteringPoint
-11;dictCurrentTransType;Типы трансформаторов тока;Справочник типов трансформаторов тока;img/list/menu_item.jpg;meteringPoint
-12;dictVoltageTransType;Типы трансформаторов напряжения;Справочник типов трансформаторов напряжения;img/list/menu_item.jpg;object
+10;dictMeterType;Типы счётчиков;Справочник типов счётчиков;img/list/menu_item.jpg;equipment
+11;dictCurrentTransType;Типы трансформаторов тока;Справочник типов трансформаторов тока;img/list/menu_item.jpg;equipment
+12;dictVoltageTransType;Типы трансформаторов напряжения;Справочник типов трансформаторов напряжения;img/list/menu_item.jpg;equipment
 13;dictSubstationType;Типы подстанций;Справочник типов подстанций;img/list/menu_item.jpg;object
 14;dictEnergySourceType;Типы энергоисточников;Справочник типов энергоисточников;img/list/menu_item.jpg;object
 15;dictVoltageClass;Классы напряжений;Справочник классов напряжений;img/list/menu_item.jpg;object
