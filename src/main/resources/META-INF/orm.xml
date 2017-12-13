@@ -179,6 +179,10 @@
 			<basic name="name">
 				<column name="name" />
 			</basic>
+
+			<basic name="url">
+				<column name="url" />
+			</basic>
 		</attributes>
 	</entity>
 

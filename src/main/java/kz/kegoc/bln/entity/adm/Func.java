@@ -19,4 +19,7 @@ public class Func implements HasId, HasCode, HasName {
 	
 	@NotNull @Size(max = 100)
 	private String name;
+
+	@NotNull @Size(max = 300)
+	private String url;
 }
