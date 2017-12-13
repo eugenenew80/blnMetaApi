@@ -25,15 +25,15 @@ public class MetaMediaResourceImpl {
 
 
 	@GET 
-	public Response getAll(@QueryParam("code") String code, @QueryParam("name") String name) {		
+	public Response getAll() {
 		List<MediaDto> list = service.findAll()
 			.stream()
 			.map( it-> mapper.map(it, MediaDto.class) )
 			.collect(Collectors.toList());
 		
 		return Response.ok()
-				.entity(new GenericEntity<Collection<MediaDto>>(list){})
-				.build();
+			.entity(new GenericEntity<Collection<MediaDto>>(list){})
+			.build();
 	}
 	
 	
@@ -44,26 +44,6 @@ public class MetaMediaResourceImpl {
 		return Response.ok()
 			.entity(mapper.map(entity, MediaDto.class))
 			.build();		
-	}
-	
-
-	@GET
-	@Path("/byCode/{code}")
-	public Response getByCode(@PathParam("code") String code) {		
-		Media entity = service.findByCode(code);
-		return Response.ok()
-			.entity(mapper.map(entity, MediaDto.class))
-			.build();
-	}
-	
-	
-	@GET
-	@Path("/byName/{name}")
-	public Response getByName(@PathParam("name") String name) {		
-		Media entity = service.findByName(name);
-		return Response.ok()
-			.entity(mapper.map(entity, MediaDto.class))
-			.build();
 	}
 
 	

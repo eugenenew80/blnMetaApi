@@ -35,8 +35,8 @@ public class MetaDictGroupResourceImpl {
 			.collect(Collectors.toList());
 		
 		return Response.ok()
-				.entity(new GenericEntity<Collection<DictGroupDto>>(list){})
-				.build();
+			.entity(new GenericEntity<Collection<DictGroupDto>>(list){})
+			.build();
 	}
 	
 	
@@ -47,26 +47,6 @@ public class MetaDictGroupResourceImpl {
 		return Response.ok()
 			.entity(mapper.map(entity, DictGroupDto.class))
 			.build();		
-	}
-	
-
-	@GET
-	@Path("/byCode/{code}")
-	public Response getByCode(@PathParam("code") String code) {		
-		DictGroup entity = service.findByCode(code);
-		return Response.ok()
-			.entity(mapper.map(entity, DictGroupDto.class))
-			.build();
-	}
-	
-	
-	@GET
-	@Path("/byName/{name}")
-	public Response getByName(@PathParam("name") String name) {		
-		DictGroup entity = service.findByName(name);
-		return Response.ok()
-			.entity(mapper.map(entity, DictGroupDto.class))
-			.build();
 	}
 
 	

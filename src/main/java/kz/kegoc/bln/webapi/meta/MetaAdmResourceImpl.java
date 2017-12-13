@@ -25,15 +25,15 @@ public class MetaAdmResourceImpl {
 
 
 	@GET 
-	public Response getAll(@QueryParam("code") String code, @QueryParam("name") String name) {		
+	public Response getAll() {
 		List<AdmDto> list = service.findAll()
 			.stream()
 			.map( it-> mapper.map(it, AdmDto.class) )
 			.collect(Collectors.toList());
 		
 		return Response.ok()
-				.entity(new GenericEntity<Collection<AdmDto>>(list){})
-				.build();
+			.entity(new GenericEntity<Collection<AdmDto>>(list){})
+			.build();
 	}
 	
 	
@@ -44,26 +44,6 @@ public class MetaAdmResourceImpl {
 		return Response.ok()
 			.entity(mapper.map(entity, AdmDto.class))
 			.build();		
-	}
-	
-
-	@GET
-	@Path("/byCode/{code}")
-	public Response getByCode(@PathParam("code") String code) {		
-		Adm entity = service.findByCode(code);
-		return Response.ok()
-			.entity(mapper.map(entity, AdmDto.class))
-			.build();
-	}
-	
-	
-	@GET
-	@Path("/byName/{name}")
-	public Response getByName(@PathParam("name") String name) {		
-		Adm entity = service.findByName(name);
-		return Response.ok()
-			.entity(mapper.map(entity, AdmDto.class))
-			.build();
 	}
 
 	
