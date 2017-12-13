@@ -15,6 +15,6 @@ public class Module implements HasId, HasCode, HasName {
 	@NotNull @Size(max = 100)
 	private String name;
 	
-	@NotNull @Size(max = 30)
+	@NotNull @Size(max = 100)
 	private String shortName;
 }

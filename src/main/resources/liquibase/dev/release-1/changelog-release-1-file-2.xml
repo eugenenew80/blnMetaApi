@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
     
 
-    <changeSet id="meta-eug-5" logicalFilePath="path-independent" author="eugene" context="postgres">
+    <changeSet id="meta-eug-5" logicalFilePath="path-independent" author="eugene" context="dev">
         <comment>Creating table: meta_dicts</comment>
         <createTable tableName="meta_dicts" schemaName="apps">            
             <column name="id" type="number">
@@ -31,11 +31,11 @@
             </column>
 
 			<column name="list_order" type="number"/>
-			<column name="group_code" type="varchar(100)"/>
+			<column name="dict_group_id" type="number"/>
         </createTable>
     </changeSet>
 
-	<changeSet id="meta-eug-6" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-6" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating primary key for table: meta_dicts</comment>
 	    <addPrimaryKey 
 	            columnNames="id"
@@ -44,7 +44,7 @@
 	            tableName="meta_dicts"/>
 	</changeSet>
 	
-	<changeSet id="meta-eug-7" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-7" logicalFilePath="path-independent" author="eugene" context="dev">
 		<comment>Load demo data to table: meta_dicts</comment>
 	    <loadData
 	            encoding="UTF-8"
@@ -60,7 +60,7 @@
 	        <column name="name"				type="STRING"/>
 	        <column name="short_name"		type="STRING"/>
 	        <column name="image_path"		type="STRING"/>
-	        <column name="group_code"		type="STRING"/>
+	        <column name="dict_group_id"	type="NUMERIC"/>
 	    </loadData>
 		
 		<rollback>
@@ -68,7 +68,7 @@
         </rollback>	
 	</changeSet>	
 	
-	<changeSet id="meta-eug-8" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-8" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating sequence for table: meta_dicts</comment>
 	    <createSequence 
 	            incrementBy="1"

@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
     
 
-    <changeSet id="meta-eug-1" logicalFilePath="path-independent" author="eugene" context="postgres">
+    <changeSet id="meta-eug-1" logicalFilePath="path-independent" author="eugene" context="dev">
         <comment>Creating table: meta_modules</comment>
         <createTable tableName="meta_modules" schemaName="apps">            
             <column name="id" type="number">
@@ -28,7 +28,7 @@
         </createTable>
     </changeSet>
 
-	<changeSet id="meta-eug-2" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-2" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating primary key for table: meta_modules</comment>
 	    <addPrimaryKey 
 	            columnNames="id"
@@ -37,7 +37,7 @@
 	            tableName="meta_modules"/>
 	</changeSet>
 	
-	<changeSet id="meta-eug-3" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-3" logicalFilePath="path-independent" author="eugene" context="dev">
 		<comment>Load demo data to table: meta_modules</comment>
 	    <loadData
 	            encoding="UTF-8"
@@ -58,7 +58,7 @@
         </rollback>	
 	</changeSet>	
 	
-	<changeSet id="meta-eug-4" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-4" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating sequence for table: meta_modules</comment>
 	    <createSequence 
 	            incrementBy="1"

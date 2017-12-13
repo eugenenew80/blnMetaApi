@@ -6,10 +6,14 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
 
-    <changeSet id="meta-eug-17" logicalFilePath="path-independent" author="eugene" context="postgres">
+    <changeSet id="meta-eug-17" logicalFilePath="path-independent" author="eugene" context="dev">
         <comment>Creating table: meta_dict_groups</comment>
-        <createTable tableName="meta_dict_groups" schemaName="apps">            
-            <column name="code" type="varchar(100)">
+        <createTable tableName="meta_dict_groups" schemaName="apps">
+			<column name="id" type="number">
+				<constraints nullable="false"/>
+			</column>
+
+			<column name="code" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
             
@@ -23,16 +27,16 @@
         </createTable>
     </changeSet>
 
-	<changeSet id="meta-eug-18" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-18" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating primary key for table: meta_dict_groups</comment>
 	    <addPrimaryKey 
-	            columnNames="code"
+	            columnNames="id"
 	            constraintName="pk_meta_dict_groups"
 	            schemaName="apps"
 	            tableName="meta_dict_groups"/>
 	</changeSet>
 	
-	<changeSet id="meta-eug-19" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-19" logicalFilePath="path-independent" author="eugene" context="dev">
 		<comment>Load demo data to table: meta_dict_groups</comment>
 	    <loadData
 	            encoding="UTF-8"
@@ -43,6 +47,7 @@
 	            separator=";"
 	            tableName="meta_dict_groups">
 	        
+	        <column name="id" 				type="NUMERIC"/>
 	        <column name="code" 			type="STRING"/>
 	        <column name="name"				type="STRING"/>
 	        <column name="short_name"		type="STRING"/>
@@ -51,5 +56,14 @@
 		<rollback>
         	<delete schemaName="apps" tableName="meta_dict_groups" />
         </rollback>	
-	</changeSet>	
+	</changeSet>
+
+	<changeSet id="meta-eug-20" logicalFilePath="path-independent" author="eugene" context="dev">
+		<comment>Creating sequence for table: meta_dict_groups</comment>
+		<createSequence
+				incrementBy="1"
+				schemaName="apps"
+				sequenceName="meta_dict_groups_s"
+				startValue="11"/>
+	</changeSet>
 </databaseChangeLog>

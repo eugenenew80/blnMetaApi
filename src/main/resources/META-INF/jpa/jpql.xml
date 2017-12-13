@@ -16,8 +16,23 @@
 			select t from Module t where t.code=:code
 		</query>
 	</named-query>
-	
-	
+
+	<named-query name="DictGroup.findAll">
+		<query>
+			select t from DictGroup t order by t.id
+		</query>
+	</named-query>
+	<named-query name="DictGroup.findByName">
+		<query>
+			select t from DictGroup t where t.name=:name
+		</query>
+	</named-query>
+	<named-query name="DictGroup.findByCode">
+		<query>
+			select t from DictGroup t where t.code=:code
+		</query>
+	</named-query>
+
 	<named-query name="Dict.findAll">
 		<query>
 			select t from Dict t order by t.listOrder, t.id

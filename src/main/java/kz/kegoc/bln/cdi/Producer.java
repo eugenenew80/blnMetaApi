@@ -5,6 +5,7 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import kz.kegoc.bln.entity.adm.User;
+import kz.kegoc.bln.entity.common.Lang;
 import org.redisson.Redisson;
 import org.redisson.api.RMapCache;
 import org.redisson.api.RedissonClient;
@@ -44,5 +45,11 @@ public class Producer {
         createRedissonClient();
         sessions = redissonClient.getMapCache("sessions");
         return sessions;
+    }
+
+
+    @Produces
+    public Lang defLang() {
+        return Lang.RU;
     }
 }

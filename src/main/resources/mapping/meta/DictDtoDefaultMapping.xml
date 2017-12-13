@@ -4,7 +4,22 @@
           xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
   <mapping>
-    <class-a>kz.kegoc.bln.entity.meta.Module</class-a>
-    <class-b>kz.kegoc.bln.entity.meta.dto.ModuleDto</class-b>
-  </mapping> 
+    <class-a>kz.kegoc.bln.entity.meta.Dict</class-a>
+    <class-b>kz.kegoc.bln.entity.meta.dto.DictDto</class-b>
+
+    <field>
+      <a>dictGroup.id</a>
+      <b>dictGroupId</b>
+    </field>
+
+    <field type="one-way">
+      <a>dictGroup.code</a>
+      <b>dictGroupCode</b>
+    </field>
+
+    <field type="one-way">
+      <a>dictGroup.name</a>
+      <b>dictGroupName</b>
+    </field>
+  </mapping>
 </mappings> 

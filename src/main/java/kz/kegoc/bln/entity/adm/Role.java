@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(of= {"id"})
-public class User implements HasId, HasCode, HasName {
+public class Role implements HasId, HasCode, HasName {
 	private Long id;
 	
 	@NotNull @Size(max = 15)
@@ -20,9 +20,8 @@ public class User implements HasId, HasCode, HasName {
 	
 	@NotNull @Size(max = 100)
 	private String name;
-
-	@NotNull
-	private Long orgId;
-
-	private List<UserRole> roles;
+	
+	private List<RoleFunc> funcs;
+	private List<RoleModule> modules;
+	private List<RoleDict> dicts;
 }

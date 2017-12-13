@@ -1,4 +1,4 @@
-package kz.kegoc.bln.entity.adm;
+package kz.kegoc.bln.entity.meta;
 
 import kz.kegoc.bln.entity.common.HasCode;
 import kz.kegoc.bln.entity.common.HasId;
@@ -8,11 +8,10 @@ import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(of= {"id"})
-public class User implements HasId, HasCode, HasName {
+public class DictGroup implements HasId, HasCode, HasName {
 	private Long id;
 	
 	@NotNull @Size(max = 15)
@@ -20,9 +19,7 @@ public class User implements HasId, HasCode, HasName {
 	
 	@NotNull @Size(max = 100)
 	private String name;
-
-	@NotNull
-	private Long orgId;
-
-	private List<UserRole> roles;
+	
+	@NotNull @Size(max = 100)
+	private String shortName;
 }

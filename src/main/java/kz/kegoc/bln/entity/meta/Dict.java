@@ -22,5 +22,5 @@ public class Dict implements HasId, HasCode, HasName {
 	private String imagePath;
 
 	private Long listOrder;
-	private String groupCode;
+	private DictGroup dictGroup;
 }

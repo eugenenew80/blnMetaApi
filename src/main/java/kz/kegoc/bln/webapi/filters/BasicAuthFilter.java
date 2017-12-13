@@ -3,7 +3,6 @@ package kz.kegoc.bln.webapi.filters;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -13,17 +12,14 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
 import kz.kegoc.bln.entity.adm.User;
+import kz.kegoc.bln.webapi.common.CustomPrincipal;
 import org.apache.commons.lang3.StringUtils;
-
 import org.redisson.api.RMapCache;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 import org.apache.commons.codec.binary.Base64;
 
 @Provider
 @PreMatching
-public class BasicAuthentificationFilter implements ContainerRequestFilter {
+public class BasicAuthFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext ctx) throws IOException {
@@ -65,12 +61,7 @@ public class BasicAuthentificationFilter implements ContainerRequestFilter {
 
 				@Override
 				public Principal getUserPrincipal() {
-					return new Principal() {
-						@Override
-						public String getName() {
-							return user.getName();
-						}
-					};
+					return new CustomPrincipal(userName, user);
 				}
 
 				@Override

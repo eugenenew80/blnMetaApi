@@ -6,6 +6,12 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+
+import kz.kegoc.bln.entity.adm.User;
+import kz.kegoc.bln.entity.common.Lang;
+import kz.kegoc.bln.service.adm.UserService;
+import kz.kegoc.bln.webapi.common.CustomPrincipal;
+import kz.kegoc.bln.webapi.common.SessionContext;
 import org.dozer.DozerBeanMapper;
 import kz.kegoc.bln.entity.meta.Dict;
 import kz.kegoc.bln.entity.meta.dto.DictDto;
@@ -25,12 +31,35 @@ public class MetaDictResourceImpl {
 
 
 	@GET 
-	public Response getAll() {
+	public Response getAll(@HeaderParam("lang") Lang lang) {
 		List<DictDto> list = service.findAll()
 			.stream()
-			.map( it-> mapper.map(it, DictDto.class) )
+			.map( it-> mapper.map(it, DictDto.class))
 			.collect(Collectors.toList());
 		
+		return Response.ok()
+				.entity(new GenericEntity<Collection<DictDto>>(list){})
+				.build();
+	}
+
+	@GET
+	@Path("/byUser")
+	public Response getByUser(@HeaderParam("lang") Lang lang) {
+		SessionContext context = buildSessionContext(lang);
+		User user = userService.findById(context.getUser().getId());
+
+		List<Dict> dicts = user.getRoles().stream()
+			.flatMap(u -> u.getRole().getDicts().stream())
+			.map(roleDict -> roleDict.getDict())
+			.distinct()
+			.collect(Collectors.toList());
+
+		List<DictDto> list = service.findAll()
+			.stream()
+			.filter(it -> dicts.contains(it))
+			.map( it-> mapper.map(it, DictDto.class))
+			.collect(Collectors.toList());
+
 		return Response.ok()
 				.entity(new GenericEntity<Collection<DictDto>>(list){})
 				.build();
@@ -44,26 +73,6 @@ public class MetaDictResourceImpl {
 		return Response.ok()
 			.entity(mapper.map(entity, DictDto.class))
 			.build();		
-	}
-	
-
-	@GET
-	@Path("/byCode/{code}")
-	public Response getByCode(@PathParam("code") String code) {		
-		Dict entity = service.findByCode(code);
-		return Response.ok()
-			.entity(mapper.map(entity, DictDto.class))
-			.build();
-	}
-	
-	
-	@GET
-	@Path("/byName/{name}")
-	public Response getByName(@PathParam("name") String name) {		
-		Dict entity = service.findByName(name);
-		return Response.ok()
-			.entity(mapper.map(entity, DictDto.class))
-			.build();
 	}
 
 	
@@ -93,8 +102,25 @@ public class MetaDictResourceImpl {
 		return Response.noContent()
 			.build();
 	}
-	
 
-	@Inject private DictService service;
+	private SessionContext buildSessionContext(Lang lang) {
+		SessionContext context = new SessionContext();
+		context.setLang(lang!=null ? lang : defLang);
+		context.setUser(((CustomPrincipal)securityContext.getUserPrincipal()).getUser());
+		return context;
+	}
+
+	@Inject
+	private DictService service;
+
+	@Inject
+	private UserService userService;
+
 	private DozerBeanMapper mapper;
+
+	@Context
+	private SecurityContext securityContext;
+
+	@Inject
+	private Lang defLang;
 }

@@ -6,7 +6,7 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
 
-    <changeSet id="meta-eug-13" logicalFilePath="path-independent" author="eugene" context="postgres">
+    <changeSet id="meta-eug-13" logicalFilePath="path-independent" author="eugene" context="dev">
         <comment>Creating table: meta_media</comment>
         <createTable tableName="meta_media" schemaName="apps">            
             <column name="id" type="number">
@@ -31,7 +31,7 @@
         </createTable>
     </changeSet>
 
-	<changeSet id="meta-eug-14" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-14" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating primary key for table: meta_media</comment>
 	    <addPrimaryKey 
 	            columnNames="id"
@@ -40,7 +40,7 @@
 	            tableName="meta_media"/>
 	</changeSet>
 	
-	<changeSet id="meta-eug-15" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-15" logicalFilePath="path-independent" author="eugene" context="dev">
 		<comment>Load demo data to table: meta_media</comment>
 	    <loadData
 	            encoding="UTF-8"
@@ -63,7 +63,7 @@
         </rollback>	
 	</changeSet>	
 	
-	<changeSet id="meta-eug-16" logicalFilePath="path-independent" author="eugene" context="postgres">
+	<changeSet id="meta-eug-16" logicalFilePath="path-independent" author="eugene" context="dev">
 	    <comment>Creating sequence for table: meta_media</comment>
 	    <createSequence 
 	            incrementBy="1"
