@@ -13,7 +13,7 @@
 12;dictSubstationType;Типы подстанций;Справочник типов подстанций;img/list/menu_item.jpg;2
 13;dictEnergySourceType;Типы энергоисточников;Справочник типов энергоисточников;img/list/menu_item.jpg;2
 14;dictVoltageClass;Классы напряжений;Справочник классов напряжений;img/list/menu_item.jpg;2
-15;dictMeteringType;Типы учёта;Справочник групп учёта электроэнергии;img/list/menu_item.jpg;2
+15;dictMeteringType;Группы учёта электроэнергии;Справочник групп учёта электроэнергии;img/list/menu_item.jpg;2
 16;dictMeteringPointType;Типы точек учёта;Справочник типов точек учёта;img/list/menu_item.jpg;2
 17;dictAccountingType;Виды учёта;Справочник видов учёта электроэнергии;img/list/menu_item.jpg;2
 18;dictUnit;Единицы измерения;Справочник единиц измерения;img/list/menu_item.jpg;1
