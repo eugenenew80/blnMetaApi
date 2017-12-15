@@ -5,7 +5,7 @@
 4;dictReactor;Реакторы;Справочник реакторов;img/list/menu_item.jpg;3
 5;dictMeter;Счётчики;Справочник счётчиков;img/list/menu_item.jpg;4
 6;dictSubstation;Подстанции;Справочник подстанций;img/list/menu_item.jpg;2
-7;dictEnergySource;Энергоисточники;Справочник энергоисточников;img/list/menu_item.jpg;2
+7;dictEnergySource;Электростанции;Справочник электростанций;img/list/menu_item.jpg;2
 8;dictMeteringPoint;Точки учёта;Справочник точек учёта;img/list/menu_item.jpg;4
 9;dictMeterType;Типы счётчиков;Справочник типов счётчиков;img/list/menu_item.jpg;4
 10;dictCurrentTransType;Типы трансформаторов тока;Справочник типов трансформаторов тока;img/list/menu_item.jpg;4
