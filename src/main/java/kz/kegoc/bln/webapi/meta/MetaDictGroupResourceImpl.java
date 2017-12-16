@@ -1,17 +1,27 @@
 package kz.kegoc.bln.webapi.meta;
 
+import kz.kegoc.bln.entity.adm.User;
+import kz.kegoc.bln.entity.common.Lang;
+import kz.kegoc.bln.entity.meta.Dict;
 import kz.kegoc.bln.entity.meta.DictGroup;
+import kz.kegoc.bln.entity.meta.dto.DictDto;
 import kz.kegoc.bln.entity.meta.dto.DictGroupDto;
+import kz.kegoc.bln.service.adm.UserService;
 import kz.kegoc.bln.service.meta.DictGroupService;
+import kz.kegoc.bln.webapi.common.CustomPrincipal;
+import kz.kegoc.bln.webapi.common.SessionContext;
 import org.dozer.DozerBeanMapper;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,8 +48,27 @@ public class MetaDictGroupResourceImpl {
 			.entity(new GenericEntity<Collection<DictGroupDto>>(list){})
 			.build();
 	}
-	
-	
+
+
+	@GET
+	@Path("/byUser")
+	public Response getByUser(@HeaderParam("lang") Lang lang) {
+		SessionContext context = buildSessionContext(lang);
+		User user = userService.findById(context.getUser().getId());
+
+		List<DictGroupDto> list = user.getRoles().stream()
+			.flatMap(u -> u.getRole().getDicts().stream())
+			.map(roleDict -> roleDict.getDict().getDictGroup())
+			.distinct()
+			.sorted(Comparator.comparing(DictGroup::getId))
+			.map( it-> mapper.map(it, DictGroupDto.class) )
+			.collect(Collectors.toList());
+
+		return Response.ok()
+				.entity(new GenericEntity<Collection<DictGroupDto>>(list){})
+				.build();
+	}
+
 	@GET 
 	@Path("/{id : \\d+}") 
 	public Response getById(@PathParam("id") Long id) {
@@ -76,8 +105,27 @@ public class MetaDictGroupResourceImpl {
 		return Response.noContent()
 			.build();
 	}
-	
 
-	@Inject private DictGroupService service;
+
+	private SessionContext buildSessionContext(Lang lang) {
+		SessionContext context = new SessionContext();
+		context.setLang(lang!=null ? lang : defLang);
+		context.setUser(((CustomPrincipal)securityContext.getUserPrincipal()).getUser());
+		return context;
+	}
+
+
+	@Inject
+	private DictGroupService service;
+
 	private DozerBeanMapper mapper;
+
+	@Context
+	private SecurityContext securityContext;
+
+	@Inject
+	private UserService userService;
+
+	@Inject
+	private Lang defLang;
 }
