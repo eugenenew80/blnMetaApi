@@ -6,14 +6,12 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-
+import kz.kegoc.bln.cdi.mapper.BeanMapper;
 import kz.kegoc.bln.entity.adm.User;
 import kz.kegoc.bln.entity.common.Lang;
-import kz.kegoc.bln.entity.meta.Dict;
 import kz.kegoc.bln.service.adm.UserService;
 import kz.kegoc.bln.webapi.common.CustomPrincipal;
 import kz.kegoc.bln.webapi.common.SessionContext;
-import org.dozer.DozerBeanMapper;
 import kz.kegoc.bln.entity.meta.Module;
 import kz.kegoc.bln.entity.meta.dto.ModuleDto;
 import kz.kegoc.bln.service.meta.ModuleService;
@@ -24,18 +22,12 @@ import kz.kegoc.bln.service.meta.ModuleService;
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class MetaModuleResourceImpl {
-	
-	public MetaModuleResourceImpl() {
-		mapper = new DozerBeanMapper();
-		mapper.setMappingFiles(Arrays.asList("mapping/meta/ModuleDtoDefaultMapping.xml"));
-	} 
-
 
 	@GET 
 	public Response getAll(@HeaderParam("lang") Lang lang) {
 		List<ModuleDto> list = service.findAll()
 			.stream()
-			.map( it-> mapper.map(it, ModuleDto.class) )
+			.map( it-> mapper.getMapper().map(it, ModuleDto.class) )
 			.collect(Collectors.toList());
 		
 		return Response.ok()
@@ -58,7 +50,7 @@ public class MetaModuleResourceImpl {
 		List<ModuleDto> list = service.findAll()
 			.stream()
 			.filter(it -> modules.contains(it))
-			.map( it-> mapper.map(it, ModuleDto.class) )
+			.map( it-> mapper.getMapper().map(it, ModuleDto.class) )
 			.collect(Collectors.toList());
 
 		return Response.ok()
@@ -72,16 +64,16 @@ public class MetaModuleResourceImpl {
 	public Response getById(@PathParam("id") Long id) {
 		Module entity = service.findById(id);
 		return Response.ok()
-			.entity(mapper.map(entity, ModuleDto.class))
+			.entity(mapper.getMapper().map(entity, ModuleDto.class))
 			.build();		
 	}
 
 	
 	@POST
 	public Response create(ModuleDto moduleDto) {
-		Module newEntity = service.create(mapper.map(moduleDto, Module.class));	
+		Module newEntity = service.create(mapper.getMapper().map(moduleDto, Module.class));
 		return Response.ok()
-			.entity(mapper.map(newEntity, ModuleDto.class))
+			.entity(mapper.getMapper().map(newEntity, ModuleDto.class))
 			.build();
 	}
 	
@@ -89,9 +81,9 @@ public class MetaModuleResourceImpl {
 	@PUT 
 	@Path("{id : \\d+}") 
 	public Response update(@PathParam("id") Long id, ModuleDto moduleDto ) {
-		Module newEntity = service.update(mapper.map(moduleDto, Module.class)); 
+		Module newEntity = service.update(mapper.getMapper().map(moduleDto, Module.class));
 		return Response.ok()
-			.entity(mapper.map(newEntity, ModuleDto.class))
+			.entity(mapper.getMapper().map(newEntity, ModuleDto.class))
 			.build();
 	}
 	
@@ -118,7 +110,8 @@ public class MetaModuleResourceImpl {
 	@Inject
 	private UserService userService;
 
-	private DozerBeanMapper mapper;
+	@Inject
+	private BeanMapper mapper;
 
 	@Context
 	private SecurityContext securityContext;

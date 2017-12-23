@@ -14,12 +14,17 @@ import javax.ws.rs.ext.Provider;
 import kz.kegoc.bln.entity.adm.User;
 import kz.kegoc.bln.webapi.common.CustomPrincipal;
 import org.apache.commons.lang3.StringUtils;
+import org.redisson.api.RBucket;
 import org.redisson.api.RMapCache;
 import org.apache.commons.codec.binary.Base64;
+import org.redisson.api.RedissonClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Provider
 @PreMatching
 public class BasicAuthFilter implements ContainerRequestFilter {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public void filter(ContainerRequestContext ctx) throws IOException {
@@ -41,11 +46,13 @@ public class BasicAuthFilter implements ContainerRequestFilter {
 			throw new NotAuthorizedException("EMPTY USER");
 
 		String hash = Base64.encodeBase64String((userName + ":" + password).getBytes());
-		User user = sessions.get(hash);
+		RBucket<User> bucket = redissonClient.getBucket(hash);
+		User user = bucket.get();
 		if (user==null)
 			throw new NotAuthorizedException("USER IS NOT REGISTERED");
+		bucket.set(user, 30, TimeUnit.MINUTES);
 
-		sessions.put(userName, user,30, TimeUnit.MINUTES);
+		logger.info(userName + ": " + ctx.getMethod() + " " + ctx.getUriInfo().getPath());
 
 		ctx.setSecurityContext(
 			new SecurityContext() {
@@ -73,5 +80,5 @@ public class BasicAuthFilter implements ContainerRequestFilter {
 	}
 
 	@Inject
-	private RMapCache<String, User> sessions;
+	private RedissonClient redissonClient;
 }

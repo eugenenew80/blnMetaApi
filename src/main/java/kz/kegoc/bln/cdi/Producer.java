@@ -4,19 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
-import kz.kegoc.bln.entity.adm.User;
 import kz.kegoc.bln.entity.common.Lang;
 import org.redisson.Redisson;
-import org.redisson.api.RMapCache;
 import org.redisson.api.RedissonClient;
 import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
-
 import javax.enterprise.inject.Produces;
 
 public class Producer {
     private RedissonClient redissonClient = null;
-    private RMapCache<String, User> sessions  = null;
 
     @Produces
     public RedissonClient createRedissonClient() {
@@ -35,18 +31,6 @@ public class Producer {
         redissonClient = Redisson.create(config);
         return redissonClient;
     }
-
-
-    @Produces
-    public RMapCache<String, User> createSessions() {
-        if (sessions!=null)
-            return sessions;
-
-        createRedissonClient();
-        sessions = redissonClient.getMapCache("sessions");
-        return sessions;
-    }
-
 
     @Produces
     public Lang defLang() {
