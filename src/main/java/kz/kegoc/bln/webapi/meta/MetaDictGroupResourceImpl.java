@@ -1,6 +1,6 @@
 package kz.kegoc.bln.webapi.meta;
 
-import kz.kegoc.bln.cdi.mapper.BeanMapper;
+import kz.kegoc.bln.ejb.mapper.BeanMapper;
 import kz.kegoc.bln.entity.adm.User;
 import kz.kegoc.bln.entity.common.Lang;
 import kz.kegoc.bln.entity.meta.DictGroup;

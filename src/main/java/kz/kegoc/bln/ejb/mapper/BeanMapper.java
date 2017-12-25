@@ -1,4 +1,4 @@
-package kz.kegoc.bln.cdi.mapper;
+package kz.kegoc.bln.ejb.mapper;
 
 import org.dozer.DozerBeanMapper;
 import javax.annotation.PostConstruct;

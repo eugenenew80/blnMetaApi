@@ -7,8 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
-import kz.kegoc.bln.cdi.mapper.BeanMapper;
-import org.dozer.DozerBeanMapper;
+import kz.kegoc.bln.ejb.mapper.BeanMapper;
 import kz.kegoc.bln.entity.meta.Media;
 import kz.kegoc.bln.entity.meta.dto.MediaDto;
 import kz.kegoc.bln.service.meta.MediaService;

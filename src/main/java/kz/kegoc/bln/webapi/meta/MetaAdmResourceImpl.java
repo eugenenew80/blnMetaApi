@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import kz.kegoc.bln.cdi.mapper.BeanMapper;
+import kz.kegoc.bln.ejb.mapper.BeanMapper;
 import kz.kegoc.bln.entity.meta.Adm;
 import kz.kegoc.bln.entity.meta.dto.AdmDto;
 import kz.kegoc.bln.service.meta.AdmService;
